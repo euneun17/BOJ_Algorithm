@@ -4,18 +4,13 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException{
        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-       StringTokenizer st = new StringTokenizer(br.readLine());
-       int n = Integer.parseInt(st.nextToken());
-
-       int i = 1;
-       while(i<=n){
-           for(i=1; i<=n; i++){
-               for(int j=1; j<=i; j++){
-                   System.out.print("*");
-               }
-               System.out.println();
-           }
-           i++;
+       int n = Integer.parseInt(br.readLine());
+       StringBuilder sb1 = new StringBuilder();
+       StringBuilder sb2 = new StringBuilder();
+       for (int i = 0; i<n; i++){
+           sb1.append("*");
+           sb2.append(sb1+"\n");
        }
+       System.out.print(sb2);
     }
 }
