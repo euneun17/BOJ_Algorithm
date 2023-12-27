@@ -5,14 +5,16 @@ public class Main {
        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
        int n = Integer.parseInt(br.readLine());
 
-       for(int i = n; i>0; i--){
-           for(int j = i-1; j>0; j--){
-               System.out.print(" ");
+       StringBuilder sb = new StringBuilder();
+       for(int i = 1; i<=n; i++){
+           for(int j = n-i; j>0; j--){
+             sb.append(" ");
            }
-           for(int k = n+1-i; k>0; k--){
-               System.out.print("*");
+           for(int k = i; k>0; k--){
+               sb.append("*");
            }
-           System.out.println();
+           sb.append("\n");
        }
+       System.out.print(sb);
     }
 }
