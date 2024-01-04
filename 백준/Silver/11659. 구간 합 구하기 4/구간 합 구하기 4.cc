@@ -10,7 +10,7 @@ int main(){
 	int n, m;
 	cin >> n >> m;
 
-	int S[100000] = {};
+	int S[100001] = {};
 	for (int i = 1; i < n + 1; i++) {
 		int temp;
 		cin >> temp;
