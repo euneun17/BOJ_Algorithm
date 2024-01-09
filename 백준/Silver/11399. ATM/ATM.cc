@@ -26,24 +26,8 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> v[i];
 	}
-
-	for (int i = 1; i < n; i++) {
-		int point = i;
-		int point_value = v[i];
-		for (int j = i - 1; j >= 0; j--) {
-			if (v[point] > v[j]) {
-				point = j + 1;
-				break;
-			}
-			else if (j == 0) {
-				point = j;
-			}
-		}
-		for (int j = i; j > point; j--) { //삽입 point가 0일 수 있으므로 j >= point 면 안됨. v[-1] 값이 존재하지 않으므로
-			v[j] = v[j - 1];
-		}
-		v[point] = point_value;
-	}
+	
+	sort(v.begin(), v.end());
 
 	vector<int> sumV(n+1, 0);
 	for (int i = 1; i <= n; i++) {
