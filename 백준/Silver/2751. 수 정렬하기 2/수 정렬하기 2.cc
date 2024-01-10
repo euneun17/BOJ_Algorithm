@@ -11,7 +11,7 @@ static vector<int> tmpV;
 void merge_sort (int s, int e) {
 	int m = (s + e) / 2;
 
-	if (s >= e) { //s=e라는 건 크기 1로 분할이 되었다는 뜻
+	if (s == e) { //s=e라는 건 크기 1로 분할이 되었다는 뜻
 		return;
 	}
 	
