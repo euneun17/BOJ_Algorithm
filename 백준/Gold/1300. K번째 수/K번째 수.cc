@@ -14,23 +14,24 @@ int main() {
 	
 	long n, k;
 	cin >> n >> k;
-	long start = 1, end = k;
-	long ans = 0;
 
-	while (start <= end) {
-		long middle = (start + end) / 2;
-		long cnt = 0;
+	int result = 0;
+	int s = 1;
+	int e = k;
+
+	while (s <= e) {
+		long mid = (s + e) / 2;
+		int count = 0;
 
 		for (int i = 1; i <= n; i++) {
-			cnt += min(middle / i, n);
+			count += min(mid / i, n);
 		}
-		if (cnt < k) {
-			start = middle + 1;
-		}
+
+		if (count < k) s = mid + 1;
 		else {
-			ans = middle;
-			end = middle - 1;
+			e = mid - 1;
+			result = mid;
 		}
 	}
-	cout << ans << "\n";
+	cout << result;
 }
