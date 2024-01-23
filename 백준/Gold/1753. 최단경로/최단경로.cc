@@ -31,16 +31,14 @@ int main() {
 	while (!pq.empty()) {
 		edge current = pq.top(); //현재 인접하여 push된 값 중 가장 작은 값 선택
 		pq.pop();
+		if (visited[current.second]) continue; //이미 result(최소거리)가 정해진 노드는 더 볼 필요 없음
 
-		if (!visited[current.second]) {
-			visited[current.second] = true; //push 기준이 아닌 pop 시점에 visited 체크(result 확정이라는 의미)
-			for (edge i : list[current.second]) {
-				if (!visited[i.second]) {
-					if (result[current.second] + i.first < result[i.second]) {
-						result[i.second] = result[current.second] + i.first;
-						pq.push(edge(result[i.second], i.second));
-					}
-				}
+		visited[current.second] = true; //push 기준이 아닌 pop 시점에 visited 체크(result 확정이라는 의미)
+
+		for (edge i : list[current.second]) {
+			if (result[current.second] + i.first < result[i.second]) {
+				result[i.second] = result[current.second] + i.first;
+				pq.push(edge(result[i.second], i.second));
 			}
 		}
 	}
