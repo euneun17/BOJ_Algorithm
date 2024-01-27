@@ -14,7 +14,7 @@ typedef struct Edge { //priorty_queue에 Edge 자료구조의 정렬 기준을 �
 	bool operator> (const Edge& tmp) const {
 		return w > tmp.w;
 	}
-} Edge;
+};
 
 int main() {
 
