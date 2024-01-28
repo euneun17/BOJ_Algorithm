@@ -32,9 +32,10 @@ int main() {
 }
 
 void DFS(int node) {
+	visited[node] = true;
+
 	for (int i : tree[node]) {
 		if (!visited[i]) {
-			visited[i] = true;
 			result[i] = node;
 			DFS(i);
 		}
