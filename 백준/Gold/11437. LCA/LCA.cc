@@ -63,16 +63,9 @@ void BFS(int node) {
 				queue.push(i);
 				visited[i] = true;
 				parent[i] = queue.front();
-				depth[i] = level;
+				depth[i] = depth[queue.front()] + 1;
 			}
 		}
 		queue.pop();
-
-		count++;
-		if (count == now_size) {
-			count = 0;
-			now_size = queue.size();
-			level++;
-		}
 	}
 }
