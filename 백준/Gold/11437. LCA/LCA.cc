@@ -14,6 +14,10 @@ int LCA(int index1, int index2);
 void BFS(int node);
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
 	cin >> n;
 	tree.resize(n+1);
 	depth.resize(n+1);
@@ -53,9 +57,6 @@ void BFS(int node) {
 	queue<int> queue;
 	queue.push(node);
 	visited[node] = true;
-	int level = 1;
-	int now_size = 1;
-	int count = 0;
 	
 	while (!queue.empty()) {
 		for (int i : tree[queue.front()]) {
