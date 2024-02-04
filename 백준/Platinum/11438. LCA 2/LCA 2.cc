@@ -61,11 +61,7 @@ int LCA(int a, int b) {
 	//깊이 맞추기
 	//a가 b보다 위에 있다고 가정
 	for (int k = kmax; k >= 0; k--) {
-		if (pow(2, k) <= depth[b] - depth[a]) {
-			if (depth[a] <= depth[parent[k][b]]) {
-				b = parent[k][b];
-			}
-		}
+		if (pow(2, k) <= depth[b] - depth[a]) b = parent[k][b];
 	}
 
 	//최소 공통 부모 찾기
