@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <queue>
-#include <functional>
 
 using namespace std;
 
@@ -14,7 +13,8 @@ int solution(vector<int> scoville, int K) {
     }
     
     int a, b;
-    while (pq.size() >= 2 && pq.top() < K){
+    while (pq.top() < K){
+        if (pq.size() == 1) return answer = -1;
         a = pq.top(); 
         pq.pop();
         b = pq.top();
@@ -22,8 +22,6 @@ int solution(vector<int> scoville, int K) {
         pq.push(a + 2*b);
         answer++;
     }
-    
-    if (pq.top() < K) answer = -1;
         
     return answer;
 }
